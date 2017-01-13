@@ -1,0 +1,10 @@
+<h1>fupa town</h1>
+
+
+<h3>Howdy, <%= @user.username %></h3>
+
+<div>
+	<%= gravatar_for @user, size: 120 %>
+</div>
+
+<%= render 'articles/article', obj: @user.articles %>
