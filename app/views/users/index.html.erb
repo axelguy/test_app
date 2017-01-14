@@ -10,6 +10,9 @@
 		<%= link_to gravatar_for(user), user_path(user) %>
 		<%= link_to user.username, user_path(user) %>,
 		<small><%= pluralize(user.articles.count, "article") if user.articles %></small>
+		<% if logged_in? and current_user.admin? %>
+			<li><%= link_to "Delete this user", user_path(user), method: :delete %></li>
+		<% end %>
 	</div>
 	<hr>
 

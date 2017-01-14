@@ -46,7 +46,6 @@ class ArticlesController < ApplicationController
 	end
 
 
-
 private
 	def set_article
 		@article = Article.find(params[:id])
@@ -57,7 +56,7 @@ private
 	end
 
 	def require_same_user
-		if current_user != @article.user
+		if current_user != @article.user and !current_user.admin?
 			redirect_to root_path
 		end
 	end
